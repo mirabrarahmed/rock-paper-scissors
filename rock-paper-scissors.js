@@ -1,12 +1,9 @@
 const moves=['rock', 'paper', 'scissors']
 
-
 function computerPlay(){
-	let pcMove = moves[Math.floor(Math.random() * moves.length)]
+	let pcMove = moves[Math.floor(Math.random() * moves.length)] // Randomly picks an item from the moves list
 	return pcMove
 }
-
-
 
 function roundPlay(playerSelection, computerSelection){
 	playerSelection = playerSelection.toLowerCase()	
@@ -16,57 +13,31 @@ function roundPlay(playerSelection, computerSelection){
 
 
 	if(playerSelection === computerSelection){
-		return drawMessage
+		return drawMessage // Draw match
 	} else if(playerSelection === 'rock'){
 		if(computerSelection === 'scissors'){
-			return winningMessage
+			return winningMessage // Player wins
 		} else{
-			return losingMessage
+			return losingMessage // Computer wins
 		}
 	} else if(playerSelection === 'scissors'){
 		if(computerSelection === 'paper'){
-			return winningMessage
+			return winningMessage // Player wins
 		} else{
-			return losingMessage
+			return losingMessage // Computer wins
 		}
 	} else if(playerSelection === 'paper'){
 		if(computerSelection === 'rock'){
-			return winningMessage
+			return winningMessage // Players wins
 		} else{
-			return losingMessage
+			return losingMessage // Computer wins
 		}
 	} else {
 		return "Somethin went wrong..."
 	}
 }
 
-// function game(){
-// 	let playerWin = 0
-// 	let computerWin = 0
-// 	let drawCount = 0
-// 	for(i = 1; i <= 5; i++){
-// 		const playerSelection = prompt("Play your move:")
-// 		const computerSelection = computerPlay()
-// 		round = roundPlay(playerSelection, computerSelection)
-// 		console.log(round)
-// 		if (round === winningMessage) {
-// 			playerWin += 1;
-// 		} else if(round === losingMessage) {
-// 			computerWin += 1;
-// 		} else {
-// 			drawCount += 1
-// 		}
-// 	}
-// 	if (playerWin > computerWin){
-// 		return "Player won!"
-// 	} else if(playerWin < computerWin){
-// 		return "Computer won!"
-// 	} else{
-// 		return "Nobody won"
-// 	}
-// }
-
-const buttons = document.querySelectorAll('button')
+const buttons = document.querySelectorAll('button') // Selecte all buttons
 let playerWin = 0
 let computerWin = 0
 let drawCount = 0
@@ -86,12 +57,11 @@ buttons.forEach((button) => {
 		}
 
 		console.log(round)
-		const container = document.querySelector('#container')
-		const div = document.createElement('div')
+		const container = document.querySelector('#container') // Selects the div with container id
+		const div = document.createElement('div') // Creates a div element 
 
-		div.textContent = round + " Player score: " + playerWin + " Computer score: " + computerWin
-		container.appendChild(div)
-		container.currentTime = 0
+		div.textContent = round + " Player score: " + playerWin + " Computer score: " + computerWin // adds text to the div element
+		container.appendChild(div) // Adds the div element as a child to the container
 
 		if(playerWin === 5){
 			container.innerHTML = "<h1>Player Won!</h1>"
